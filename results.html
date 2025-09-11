@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>🔮 Prediction Results</h1>
+  <p><b>Selected Symptoms:</b> {{ ", ".join(selected) }}</p>
+
+  <table>
+    <tr>
+      <th>Disease</th>
+      <th>Probability (%)</th>
+    </tr>
+    {% for r in results %}
+    <tr>
+      <td>{{ r.disease }}</td>
+      <td>{{ r.probability }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <a href="/symptoms" class="btn">Go Back</a>
+{% endblock %}
+  

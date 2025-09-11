@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- ✅ Welcome Text -->
+    <div class="welcome">
+      <h1>Welcome to NeuroAid</h1>
+    </div>
+
+    <!-- ✅ Login Card -->
+    <div class="login">
+      <div class="heading">
+        <h2>Sign In</h2>
+      </div>
+      <form action="/login" method="POST">
+        <div class="input-group">
+          <span><i class="fa fa-user"></i></span>
+          <input type="text" name="username" placeholder="Username or Email" required>
+        </div>
+
+        <div class="input-group">
+          <span><i class="fa fa-lock"></i></span>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+      </form>
+
+      <!-- ✅ Error message -->
+      {% if error %}
+        <p class="error">{{ error }}</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

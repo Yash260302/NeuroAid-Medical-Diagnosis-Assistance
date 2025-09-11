@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Select Your Symptoms</h2>
+
+<form method="POST">
+  <div class="checkbox-dropdown">
+    <span class="dropdown-label">Select Symptoms</span>
+    <ul class="checkbox-dropdown-list">
+      {% for symptom in symptoms %}
+      <li>
+        <label>
+          <!-- value = exact model feature -->
+          <input type="checkbox" name="symptoms" value="{{ symptom }}"
+                 {% if symptom in selected %}checked{% endif %}>
+          <!-- label = human readable -->
+          {{ symptom.replace("_", " ") }}
+        </label>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button type="submit" class="ui primary button">Predict Disease</button>
+  </div>
+</form>
+
+{% if result %}
+<div style="margin-top:30px;">
+  <h3>Prediction Results:</h3>
+  <ul>
+    {% for disease, score in result %}
+    <li><b>{{ disease }}</b> → {{ "%.2f"|format(score) }}%</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(".checkbox-dropdown").click(function (e) {
+  e.stopPropagation();
+  $(this).toggleClass("is-active");
+});
+
+$(".checkbox-dropdown ul").click(function (e) {
+  e.stopPropagation(); // allow checkbox clicks
+});
+
+$(document).click(function () {
+  $(".checkbox-dropdown").removeClass("is-active");
+});
+</script>
+
+{% endblock %}
