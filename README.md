@@ -39,6 +39,19 @@ Built using **Python, Flask, TensorFlow, and web technologies**, NeuroAid makes 
 
 ---
 
+## 📂 Dataset
+
+The dataset used in this project is available at the following link:
+
+👉 [Download Dataset]()
+
+### How to Use
+1. Download the dataset from the link above.
+2. Place the dataset inside the `data/` folder of this project:
+
+
+---
+
 ## 🛠 **Installation**  
 
 ```bash
