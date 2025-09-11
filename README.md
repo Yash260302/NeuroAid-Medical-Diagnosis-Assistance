@@ -10,6 +10,12 @@
 
 ---
 
+**Authors**
+- Prabhav Verma
+- Yashasvi Verma
+
+---
+
 ## 🧾 **About the Project**  
 **NeuroAid** is an AI-powered healthcare assistant designed to:  
 - 🧠 Predict **diseases** from symptoms & images.  
